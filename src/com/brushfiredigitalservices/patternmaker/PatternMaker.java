@@ -1,7 +1,7 @@
 package com.brushfiredigitalservices.patternmaker;
 
 import java.awt.Color;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 
@@ -42,23 +42,15 @@ public class PatternMaker extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public static class ColorIndexOutOfBoundsException extends
-			IndexOutOfBoundsException {
-		/**
-		 * Default Serial Version UID
-		 */
-		private static final long serialVersionUID = 1L;
-
-		public ColorIndexOutOfBoundsException(String message) {
-			super(message);
-		}
-	}
-
-	public static Color colorIndexToColor(ArrayList<Color> availColors, int i) {
+	public static Color colorIndexToColor(List<Color> availColors, int i) throws ColorIndexConversionException {
+		if (availColors == null)
+			throw new ColorIndexConversionException(ColorIndexConversionException.makeMessage(ColorIndexConversionException.IS_NULL));
+		else
 		if (i < 0)
-			throw new ColorIndexOutOfBoundsException("There cannot be a negative index in the color map.");
+			throw new ColorIndexConversionException(ColorIndexConversionException.makeMessage(ColorIndexConversionException.TOO_LOW));
+		else
 		if (i >= availColors.size())
-			throw new ColorIndexOutOfBoundsException("The index is larger than the color map.");
+			throw new ColorIndexConversionException(ColorIndexConversionException.makeMessage(ColorIndexConversionException.TOO_HIGH));
 		return availColors.get(i);
 	}
 	

@@ -15,7 +15,16 @@ public class PatternMakerTest {
 		availColors.add(Color.WHITE);
 		availColors.add(Color.BLUE);
 		availColors.add(Color.BLACK);
-		assertEquals(availColors.get(1), PatternMaker.colorIndexToColor(availColors, 1));
+		Color result = null;
+		ColorIndexConversionException ex = null;
+		try {
+			result = PatternMaker.colorIndexToColor(availColors, 1);
+		}
+		catch (ColorIndexConversionException e) {
+			ex = e;
+		}
+		assertNull(ex);
+		assertEquals(availColors.get(1), result);
 	}
 	
 	@Test
@@ -24,10 +33,10 @@ public class PatternMakerTest {
 		availColors.add(Color.WHITE);
 		availColors.add(Color.BLUE);
 		availColors.add(Color.BLACK);
-		PatternMaker.ColorIndexOutOfBoundsException ex = null;
+		ColorIndexConversionException ex = null;
 		try {
 			PatternMaker.colorIndexToColor(availColors, -1);
-		} catch (PatternMaker.ColorIndexOutOfBoundsException e) {
+		} catch (ColorIndexConversionException e) {
 			ex = e;
 		}
 		assertNotNull("Exception was not thrown", ex);
@@ -40,10 +49,26 @@ public class PatternMakerTest {
 		availColors.add(Color.WHITE);
 		availColors.add(Color.BLUE);
 		availColors.add(Color.BLACK);
-		PatternMaker.ColorIndexOutOfBoundsException ex = null;
+		ColorIndexConversionException ex = null;
 		try {
 			PatternMaker.colorIndexToColor(availColors, 3);
-		} catch (PatternMaker.ColorIndexOutOfBoundsException e) {
+		} catch (ColorIndexConversionException e) {
+			ex = e;
+		}
+		assertNotNull("Exception was not thrown", ex);
+		assertEquals("The index is larger than the color map.", ex.getMessage());
+	}
+	
+	@Test
+	public void testForErrorWhenPassedNullIndex() {
+		ArrayList<Color> availColors = new ArrayList<Color>();
+		availColors.add(Color.WHITE);
+		availColors.add(Color.BLUE);
+		availColors.add(Color.BLACK);
+		ColorIndexConversionException ex = null;
+		try {
+			PatternMaker.colorIndexToColor(availColors, 3);
+		} catch (ColorIndexConversionException e) {
 			ex = e;
 		}
 		assertNotNull("Exception was not thrown", ex);
