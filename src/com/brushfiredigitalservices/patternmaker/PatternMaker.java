@@ -42,6 +42,15 @@ public class PatternMaker extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	* Utility method to attempt to access Color at given index,
+	*@throws ColorIndexConversionException with useful, specific error messages
+	if index too high or low, or passed a null List reference
+	*@returns Color reference at given index i in List availColors.
+	 return value may be null.
+	*@param i the desired index to retreive
+	*@param availColors any List<Color>, may contain null values.
+	*/
 	public static Color colorIndexToColor(List<Color> availColors, int i) throws ColorIndexConversionException {
 		if (availColors == null)
 			throw new ColorIndexConversionException(ColorIndexConversionException.makeMessage(ColorIndexConversionException.IS_NULL));
@@ -55,7 +64,18 @@ public class PatternMaker extends JFrame {
 	}
 	
 	/**
-	 * 
+	 * Save current project and its settings as XML
 	 */
-
+	public void doSave() {
+		// TODO method stub
+	}
+	
+	/**
+	* Open given XML project
+	* @param
+	* @throws IOException occured opening file
+	*/
+	public void doOpen(File f) throws IOException, ProjectLoadException {
+		// TODO method stub
+	}
 }
