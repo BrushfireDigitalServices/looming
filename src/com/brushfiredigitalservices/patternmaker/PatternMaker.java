@@ -41,6 +41,17 @@ public class PatternMaker extends JFrame {
 	 * Default serial version ID
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	* Utility method to construct and return menu bar 
+	* for this PatternMaker instance.
+	* @returns JMenuBar with options and settings reflecting
+	* the current settings of this PatternMaker.
+	*/
+	public JMenuBar makeMenuBar() {
+		// TODO method stub
+		return null;
+	}
 
 	/**
 	* Utility method to attempt to access Color at given index,
