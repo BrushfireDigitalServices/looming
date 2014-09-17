@@ -17,6 +17,7 @@ public class PatternMaker extends JFrame {
 	 public static void main(String[] args) {
 	  PatternMaker window = new PatternMaker();
 	  window.setContentPane(window.getMosaic());
+	  window.setMenuBar(window.makeMenuBar());
 	  window.setVisible(true);
 	 }
 	 
