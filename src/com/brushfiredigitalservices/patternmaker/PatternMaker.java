@@ -15,7 +15,10 @@ public class PatternMaker extends JFrame {
 	  * and makes it visible on the screen.
 	  */
 	 public static void main(String[] args) {
-	  PatternMaker window = new PatternMaker();
+		 if (args.length == 0) {
+			 
+		 }
+	  JFrame window = new JFrame();
 	  window.setContentPane(window.getMosaic());
 	  window.setMenuBar(window.makeMenuBar());
 	  window.setVisible(true);
@@ -27,7 +30,7 @@ public class PatternMaker extends JFrame {
 	}
 
 	public PatternMaker() {
-		 this(new MosaicPanel());
+		 this(new MosaicPanel(), new Project());
 	 }
 
 	 public PatternMaker(MosaicPanel m) {
@@ -50,8 +53,13 @@ public class PatternMaker extends JFrame {
 	* the current settings of this PatternMaker.
 	*/
 	public JMenuBar makeMenuBar() {
-		// TODO method stub
-		return null;
+		// TODO in progress
+		JMenuBar menuBar = new JMenuBar();
+		JMenu fileMenu = new JMenu("File");
+		JMenu editMenu = new JMenu("Edit");
+		JMenu settingMenu = new JMenu("Settings");
+		JMenu helpMenu = new JMenu("Help");
+		return menuBar;
 	}
 
 	/**
@@ -78,16 +86,16 @@ public class PatternMaker extends JFrame {
 	/**
 	 * Save current project and its settings as XML
 	 */
-	public void doSave() {
+	public void doSaveProject() {
 		// TODO method stub
 	}
 	
 	/**
 	* Open given XML project
-	* @param
+	* @param f an XML file saved in the format
 	* @throws IOException occured opening file
 	*/
-	public void doOpen(File f) throws IOException, ProjectLoadException {
+	public void doOpenProject(File f) throws IOException, ProjectLoadException {
 		// TODO method stub
 	}
 }

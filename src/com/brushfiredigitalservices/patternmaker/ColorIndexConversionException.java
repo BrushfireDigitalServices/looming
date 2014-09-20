@@ -16,16 +16,22 @@ public class ColorIndexConversionException extends
 	 * Default Serial Version UID
 	 */
 	private static final long serialVersionUID = 1L;
-
-	public static final int TOO_LOW = 0;
-	public static final int TOO_HIGH = 1;
-	public static final int IS_NULL = 2;
 	
-	public ColorIndexConversionException(String message) {
-		super(message);
+	public static enum ErrCode { TOO_LOW, TOO_HIGH, IS_NULL; 
+		@override
+		public String toString() {
+			
+		}
 	}
 	
-	public static String makeMessage(int problem) {
+	private ErrCode err;
+	
+	public ColorIndexConversionException(ErrCode problem) {
+		super(problem);
+		
+	}
+	
+	private static String makeMessage(ErrCode problem) {
 		String message;
 		switch(problem) {
 			case TOO_LOW: 
