@@ -1,0 +1,27 @@
+A Project is based around a rectangular workspace There is always a 2D size to the 
+workspace, though data about locations outside of the workspace is retained in some 
+conditions. The workspace (and always the whole workspace) is the only region which 
+is rendered to the screen. The workspace has a background color which displays in 
+all areas in a GUI output not otherwise drawn to by the Project. In this sense, the 
+workspace background can be thought of as the "table" the Project is "resting" on.
+A BufferedImage holds the image which represents the current state of the workspace
+as it should be drawn to a GUI output.
+There are zero or more ProjectLayers in a Project. Each ProjectLayer is 2D, movable
+relative to the workspace, and resizable independent of the workspace. Offset relative
+to the workspace is handled by the ProjectManager, not by the ProjectLayer.
+The user interacts with coordinates on the workspace, and the ProjectManager converts
+workspace coordinates to pass to the ProjectLayer.
+
+
+
+
+
+
+
+The PatternLayer is 2D, implements Resizable2D.
+Project is 1D array of PatternLayers
+May be rendered to: 
+monospace text without key --(can pipe to)-->File in .txt format
+monospace text with key --(can pipe to)-->File in .txt format
+XML 
+
