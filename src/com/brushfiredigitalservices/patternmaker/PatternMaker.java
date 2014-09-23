@@ -7,7 +7,8 @@ import javax.swing.JFrame;
 
 public class PatternMaker extends JFrame {
 
-	MosaicPanel mosaic;
+	RenderVisitor display;
+	RenderVisitor saver;
 	
 	 /**
 	  * main routine creates a frame of type PatternMaker
@@ -16,7 +17,8 @@ public class PatternMaker extends JFrame {
 	  */
 	 public static void main(String[] args) {
 		 if (args.length == 0) {
-			 
+			display = ;
+			saver = ;
 		 }
 	  JFrame window = new JFrame();
 	  window.setContentPane(window.getMosaic());
@@ -24,9 +26,9 @@ public class PatternMaker extends JFrame {
 	  window.setVisible(true);
 	 }
 	 
-	 public MosaicPanel getMosaic() {
+	 public RenderVisitor getDisplay() {
 		// TODO Auto-generated method stub
-		return mosaic;
+		return display;
 	}
 
 	public PatternMaker() {

@@ -1,8 +1,8 @@
 package com.brushfiredigitalservices.patternmaker;
 
 public interface LayerStack {
-	public boolean addLayer(PatternLayer lyr);
-	public boolean removeLayer(PatternLayer lyr);
-	public boolean removeLayer(int i);
-	public boolean clearLayers();
+	public void addLayer(PatternLayer lyr);
+	public void removeLayer(PatternLayer lyr);
+	public void removeLayer(int i);
+	public void clearLayers();
 }
